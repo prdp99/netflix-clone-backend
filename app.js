@@ -10,6 +10,9 @@ app.use(cors({ credentials: true, origin: "http://localhost:3000" }));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api", router);
+app.get("/", (req, res) => {
+  res.send("running");
+})
 const port = process.env.PORT || 5000;
 mongoose
   .connect(
