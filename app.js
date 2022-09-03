@@ -6,7 +6,7 @@ require("dotenv").config();
 const cookieParser = require("cookie-parser");
 const app = express();
 
-app.use(cors({ credentials: true, origin: "*" }));
+app.use(cors({ credentials: true, origin: process.env.ORIGIN }));
 app.use(cookieParser());
 app.use(express.json());
 app.use("/api", router);
@@ -20,7 +20,8 @@ mongoose
   )
   .then(() => {
     app.listen(port);
-    console.log("databes connected");
+    console.log("databes connected", port);
+    console.log("databes connected", process.env.ORIGIN);
   });
 
 process.on("uncaughtException", function (err) {
