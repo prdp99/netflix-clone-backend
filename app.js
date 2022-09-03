@@ -11,8 +11,8 @@ app.use(cookieParser());
 app.use(express.json());
 app.use("/api", router);
 app.get("/", (req, res) => {
-  res.send("running");
-})
+  res.send("it's running");
+});
 const port = process.env.PORT || 5000;
 mongoose
   .connect(
